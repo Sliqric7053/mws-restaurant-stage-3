@@ -127,10 +127,20 @@ nav h1 a {
 /* ====================== Restaurant Filtering ====================== */
 .filter-options {
   width: 100%;
-  /* height: 50px; */
+  justify-content: space-around;
+  display: flex;
   background-color: #3397db;
   align-items: center;
 }
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .filter-options {
+    display: grid;
+    grid-template-columns: 0fr;
+  }
+}
+
 .filter-options h2 {
   color: white;
   font-size: 1rem;
@@ -253,6 +263,10 @@ nav h1 a {
 }
 
 /* ====================== Restaurant Details ====================== */
+.restaurant-detail-container {
+  display: grid;
+}
+
 .inside header {
   position: fixed;
   top: 0;
@@ -261,12 +275,39 @@ nav h1 a {
 }
 .inside #map-container {
   background: blue none repeat scroll 0 0;
-  height: 87%;
+  height: 100%;
   position: fixed;
   right: 0;
-  top: 80px;
+  top: 70px;
   width: 50%;
 }
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 684px) {
+  /* .restaurant-detail-container {
+
+  } */
+  #reviews-list li {
+    width: 76% !important;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+}
+
 .inside #map {
   background-color: #ccc;
   height: 100%;
@@ -276,6 +317,7 @@ nav h1 a {
   bottom: 0;
   position: absolute;
   width: 50%;
+  padding: 2px 0;
 }
 #restaurant-name {
   color: #f18200;
@@ -310,11 +352,11 @@ nav h1 a {
 #reviews-container {
   border-bottom: 1px solid #d9d9d9;
   border-top: 1px solid #fff;
-  padding: 140px 40px 30px;
+  padding: 140px 24px 30px;
   width: 50%;
 }
 #reviews-container {
-  padding: 30px 40px 80px;
+  padding: 30px 24px 80px;
 }
 #reviews-container h2 {
   color: #f58500;
@@ -326,6 +368,7 @@ nav h1 a {
 #reviews-list {
   margin: 0;
   padding: 0;
+  margin: 0 0 20px;
 }
 #reviews-list li {
   background-color: #fff;
@@ -336,11 +379,12 @@ nav h1 a {
   overflow: hidden;
   padding: 0 20px 20px;
   position: relative;
-  width: 85%;
+  width: 80%;
 }
 #reviews-list li p {
   margin: 0 0 10px;
 }
 #restaurant-hours td {
   color: #666;
+  padding: 3px 5px;
 }
