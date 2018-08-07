@@ -46,7 +46,7 @@ self.addEventListener("activate", event => {
 self.addEventListener("fetch", event => {
   const requestUrl = new URL(event.request.url);
   if (requestUrl.pathname === "/api") {
-    // Rates. Don't cache.
+    // Mapbox api. Don't cache.
     fetch(event.request);
   } else if (requestUrl.pathname === "/") {
     // Serve from cache, update in background.
@@ -57,8 +57,8 @@ self.addEventListener("fetch", event => {
   }
 });
 
-// Attempts to retrieve from cache first. If that fails, goes to network and
-// stores it in the cache for later.
+// Attempt to retrieve from cache first. If that fails, go to network and
+// store it in the cache for later.
 function cacheWithNetworkFallbackAndStore(event) {
   let response = null;
   event.respondWith(
@@ -73,8 +73,8 @@ function cacheWithNetworkFallbackAndStore(event) {
   );
 }
 
-// Immediately responds from cache, but updates from network in the background.
-// Performs a cache bust when updating.
+// Immediately respond from cache, but update from network in the background.
+// Perform a cache bust when updating.
 function cacheThenUpdateWithCacheBust(event) {
   const networkRequest = new Request(
     `${event.request.url}?${Date.now().toString()}`
