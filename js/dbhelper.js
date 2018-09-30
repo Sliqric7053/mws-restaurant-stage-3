@@ -7,8 +7,9 @@ class DBHelper {
    * Change this to restaurants.json file location on your server.
    */
   static get DATABASE_URL() {
-    const port = 8500; // Change this to your server port
-    return `http://localhost:${port}/data/restaurants.json`;
+    // const port = 8887; // Change this to your server port
+    // return `http://localhost:${port}/data/restaurants.json`;
+    return 'http://localhost:1337/restaurants';
   }
 
   /**
@@ -21,8 +22,9 @@ class DBHelper {
       if (xhr.status === 200) {
         // Got a success response from server!
         const json = JSON.parse(xhr.responseText);
-        const restaurants = json.restaurants;
+        const restaurants = json;
         callback(null, restaurants);
+        this.storeDB(restaurants);
       } else {
         // Oops!. Got an error from server.
         const error = `Request failed. Returned status of ${xhr.status}`;
@@ -31,6 +33,36 @@ class DBHelper {
     };
     xhr.send();
   }
+
+  // Store response in the indexedDB
+static storeDB(data) {
+  let indexedDB =
+    self.indexedDB ||
+    self.mozIndexedDB ||
+    self.webkitIndexedDB ||
+    self.msIndexedDB;
+
+  let open = indexedDB.open("restaurants-db", 1);
+
+  open.onupgradeneeded = () => {
+    let db = open.result;
+    db.createObjectStore("restaurantsStore", { autoIncrement: true });
+  };
+
+  open.onsuccess = () => {
+    let db = open.result;
+    let tx = db.transaction("restaurantsStore", "readwrite");
+    let store = tx.objectStore("restaurantsStore");
+
+    if (data != null && data != undefined) {
+      store.put(data);
+    }
+
+    tx.oncomplete = () => {
+      db.close();
+    };
+  };
+}
 
   /**
    * Fetch a restaurant by its ID.
@@ -165,7 +197,13 @@ class DBHelper {
    * Restaurant image URL.
    */
   static imageUrlForRestaurant(restaurant) {
-    return `/img/${restaurant.photograph}`;
+    if (restaurant.photograph) {
+      return `/img/${restaurant.photograph}.jpg`;
+    }
+
+    if (restaurant.photograph == undefined) {
+      return `/img/10.jpg`;
+    }
   }
 
   /**
