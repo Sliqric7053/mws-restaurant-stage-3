@@ -198,11 +198,11 @@ static storeDB(data) {
    */
   static imageUrlForRestaurant(restaurant) {
     if (restaurant.photograph) {
-      return `/img/${restaurant.photograph}.jpg`;
+      return `./img/${restaurant.photograph}.jpg`;
     }
 
     if (restaurant.photograph == undefined) {
-      return `/img/10.jpg`;
+      return `./img/10.jpg`;
     }
   }
 
