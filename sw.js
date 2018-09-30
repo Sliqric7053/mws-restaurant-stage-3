@@ -1,4 +1,4 @@
-const APP_CACHE = "restaurant-review-v2";
+const APP_CACHE = "restaurant-review-v3";
 
 // Cached files
 const urlsToCache = [
