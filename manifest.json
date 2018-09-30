@@ -1,0 +1,19 @@
+{
+  "short_name": "Restaurant App",
+  "name": "Restaurant Search App",
+  "start_url": "/",
+
+  "theme_color": "#3397db",
+  "background_color": "#ffffff",
+
+  "display": "standalone",
+  "orientation": "portrait",
+
+  "icons": [
+    {
+      "src": "./favicon.ico",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
