@@ -1,11 +1,10 @@
-const APP_CACHE = "restaurant-review-v1";
+const APP_CACHE = "restaurant-review-v2";
 
 // Cached files
 const urlsToCache = [
   "./index.html",
   "./restaurant.html",
   "./css/styles.css",
-  "./data/restaurants.json",
   "./img/1.jpg",
   "./img/2.jpg",
   "./img/3.jpg",
@@ -16,10 +15,7 @@ const urlsToCache = [
   "./img/8.jpg",
   "./img/9.jpg",
   "./img/10.jpg",
-  "./js/dbhelper.js",
   "./js/main.js",
-  "./js/restaurant_info.js",
-  "https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"
 ];
 
 // Install essential URLs.
