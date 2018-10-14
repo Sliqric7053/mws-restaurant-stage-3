@@ -7,9 +7,9 @@ class DBHelper {
    * Change this to restaurants.json file location on your server.
    */
   static get DATABASE_URL() {
-    // const port = 8887; // Change this to your server port
-    // return `http://localhost:${port}/data/restaurants.json`;
-    return 'http://localhost:1337/restaurants';
+    const port = 8887; // Change this to your server port
+    return `http://localhost:${port}/data/restaurants.json`;
+    // return 'http://localhost:1337/restaurants';
   }
 
   /**
@@ -22,7 +22,7 @@ class DBHelper {
       if (xhr.status === 200) {
         // Got a success response from server!
         const json = JSON.parse(xhr.responseText);
-        const restaurants = json;
+        const restaurants = json.restaurants;
         callback(null, restaurants);
         this.storeDB(restaurants);
       } else {
