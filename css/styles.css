@@ -289,6 +289,25 @@ nav h1 a {
   }
 }
 
+@media only screen and (max-width: 590px) {
+  .inside #map-container {
+    width: 100% !important;
+    height: 400px !important;
+    position: relative;
+    top: 155px;
+    z-index: 0;
+  }
+  .inside #footer {
+    width: 100% !important;
+  }
+  #breadcrumb {
+    width: 100% !important;
+  }
+  #restaurant-container, #reviews-container {
+  width: 100% !important;
+  }
+}
+
 .inside #map {
   background-color: #ccc;
   height: 100%;
