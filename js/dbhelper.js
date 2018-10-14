@@ -8,7 +8,7 @@ class DBHelper {
    */
   static get DATABASE_URL() {
     const port = 8887; // Change this to your server port
-    return `http://localhost/data/restaurants.json`;
+    return `http://localhost:${port}/data/restaurants.json`;
     // return 'http://localhost:1337/restaurants';
   }
 
@@ -23,6 +23,7 @@ class DBHelper {
         // Got a success response from server!
         const json = JSON.parse(xhr.responseText);
         const restaurants = json.restaurants;
+        console.log('============', restaurants)
         callback(null, restaurants);
         this.storeDB(restaurants);
       } else {
@@ -198,7 +199,7 @@ static storeDB(data) {
    */
   static imageUrlForRestaurant(restaurant) {
     if (restaurant.photograph) {
-      return `./img/${restaurant.photograph}.jpg`;
+      return `./img/${restaurant.photograph}`;
     }
 
     if (restaurant.photograph == undefined) {
