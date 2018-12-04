@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <!-- Normalize.css for better cross-browser consistency -->
   <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
@@ -11,36 +10,24 @@
   <title>Restaurant Info</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-
 <body class="inside">
-  <!-- Beginning header -->
   <header>
-    <!-- Beginning nav -->
     <nav>
       <h1>
         <a href="./" title="Restaurant Reviews homepage">Restaurant Reviews</a>
       </h1>
       <div id="connectionStatus"></div>
     </nav>
-    <!-- Beginning breadcrumb -->
     <ul id="breadcrumb" role="navigation" aria-label="Breadcrumb">
       <li>
         <a href="./">Home</a>
       </li>
     </ul>
-    <!-- End breadcrumb -->
-    <!-- End nav -->
   </header>
-  <!-- End header -->
-
-  <!-- Beginning main -->
   <main class="restaurant-detail-container" id="maincontent">
-    <!-- Beginning map -->
     <section id="map-container">
       <div id="map" role="application"></div>
     </section>
-    <!-- End map -->
-    <!-- Beginning restaurant -->
     <section id="restaurant-container">
       <h2 id="restaurant-name"></h2>
       <img id="restaurant-img">
@@ -48,8 +35,6 @@
       <p id="restaurant-address"></p>
       <table id="restaurant-hours"></table>
     </section>
-    <!-- end restaurant -->
-    <!-- Beginning reviews -->
     <section id="reviews-container">
       <form id="reviewForm">
         <p>
@@ -87,29 +72,21 @@
       <ul id="reviews-list">
       </ul>
     </section>
-
     <section id="reviews-container">
       <ul id="reviews-list"></ul>
     </section>
-    <!-- End reviews -->
   </main>
-  <!-- End main -->
-  <!-- Beginning footer -->
   <footer id="footer">
     Copyright (c) 2017
     <a href="./" title="Restaurant Reviews homepage">
       <strong>Restaurant Reviews</strong>
     </a> All Rights Reserved.
   </footer>
-  <!-- End footer -->
   <script src="js/idb.js"></script>
   <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw==" crossorigin=""></script>
-  <!-- Beginning scripts -->
-  <!-- Database helpers -->
   <script src="js/dbhelper.js"></script>
-  <!-- Main javascript file -->
   <script src="js/restaurant_info.js"></script>
-  <script src="js/onOff.js" async defer></script>
+  <script src="js/offline_persitence.js" async defer></script>
   <script>
     if('serviceWorker' in navigator) {
     navigator.serviceWorker
