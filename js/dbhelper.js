@@ -181,7 +181,6 @@ class DBHelper {
         return response.json();
       })
       .then(reviews => {
-        console.log('fetchReviewsById: reviews', reviews);
         dbPromise.then(db => {
           let tx = db.transaction('reviews', 'readwrite');
           let store = tx.objectStore('reviews');
