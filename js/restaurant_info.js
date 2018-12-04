@@ -107,7 +107,8 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
     fillRestaurantHoursHTML();
   }
   // fill reviews
-  fillReviewsHTML();
+  // fillReviewsHTML();
+  DBHelper.fetchReviewsById(restaurant.id);
 };
 
 /**
@@ -133,6 +134,65 @@ fillRestaurantHoursHTML = (
 };
 
 /**
+ * Get Review Input from Form and pass on to fillReviewsHTML
+ */
+
+ /**
+ * Create the review input form
+ */
+let reviewsForm = document.getElementById("reviewForm");
+reviewsForm.addEventListener("submit", function(event) {
+  event.preventDefault();
+  let review = { "restaurant_id": self.restaurant.id };
+  const formdata = new FormData(reviewsForm);
+  for (let [key, value] of formdata.entries()) {
+    review[key] = value;
+  }
+  DBHelper.reviewsSubmission(review)
+   // .then(data => {
+        const ul = document.getElementById('reviews-list');
+        ul.appendChild(createReviewHTML(review));
+        reviewsForm.reset();
+   // })
+   // .catch(error => console.error(error))
+});
+
+// createReview = formData => {
+//   console.log('====form data===');
+//   // {
+//     // "restaurant_id": <restaurant_id>,
+//     // "name": <reviewer_name>,
+//     // "rating": <rating>,
+//     // "comments": <comment_text>
+//   // }
+
+//   const postReviewURL = 'http://localhost:1337/reviews/'
+
+//     // Setup the request
+//     var headers = new Headers();
+//     // Set some Headers
+//     headers.set('Accept', 'application/json');
+//     // Get Data from Form
+//     // var formData = new FormData();
+//     // formData.append(form[0].name, form[0].value);
+//     // formData.append(form[1].name, form[1].value);
+
+//     formData = new FormData(document.querySelector('form'));
+
+//     serialize(document.forms[0]);
+
+//     console.log('serialize(document.forms[0]);', serialize(document.forms[0]));
+
+//     // Make the request
+//     fetch(postReviewURL, {
+//       method: 'POST',
+//       headers,
+//       body: formData
+//     });
+//     self.preventDefault();
+//   }
+
+ /**
  * Create all reviews HTML and add them to the webpage.
  */
 fillReviewsHTML = (reviews = self.restaurant.reviews) => {
