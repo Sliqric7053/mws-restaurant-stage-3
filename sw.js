@@ -13,7 +13,7 @@ let urlsToCache = [
   './js/restaurant_info.js',
   './js/idb.js',
   './manifest.json',
-  './img/',
+  './img',
   './sw.js'
 ];
 
