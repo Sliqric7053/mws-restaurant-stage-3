@@ -1,3 +1,5 @@
+View the thing: https://sliqric7053.github.io/mws-restaurant-stage-3/
+
 ### Restaurant Reviews: Stage 3
 
 # Functionality
