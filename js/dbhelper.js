@@ -1,9 +1,11 @@
 /**
- * Create database
+ * Create Indexed database
  */
-let dbPromise = idb.open('restaurantd-b', 1, function(upgradeDb) {
+let dbPromise = idb.open('restaurantDB', 1, function(upgradeDb) {
   if (!upgradeDb.objectStoreNames.contains('restaurants')) {
-    upgradeDb.createObjectStore('restaurants', { keyPath: 'id' });
+    upgradeDb.createObjectStore('restaurants', {
+      keyPath: 'id'
+    });
   }
   if (!upgradeDb.objectStoreNames.contains('reviews')) {
     upgradeDb.createObjectStore('reviews', {
@@ -25,7 +27,6 @@ let dbPromise = idb.open('restaurantd-b', 1, function(upgradeDb) {
 class DBHelper {
   /**
    * Database URL.
-   * Change this to restaurants.json file location on your server.
    */
   static get DATABASE_URL() {
     return 'http://localhost:1337';
@@ -39,7 +40,6 @@ class DBHelper {
       .then(function(db) {
         let tx = db.transaction('restaurants');
         let store = tx.objectStore('restaurants');
-
         return store.getAll();
       })
       .then(function(restaurants) {
@@ -53,7 +53,6 @@ class DBHelper {
                 .then(function(db) {
                   let tx = db.transaction('restaurants', 'readwrite');
                   let store = tx.objectStore('restaurants');
-
                   for (let restaurant of restaurants) {
                     store.put(restaurant);
                   }
@@ -82,7 +81,6 @@ class DBHelper {
       .then(function(db) {
         let tx = db.transaction('reviews');
         let store = tx.objectStore('reviews');
-
         return store.getAll();
       })
       .then(function(reviews) {
@@ -117,7 +115,7 @@ class DBHelper {
       });
   }
 
-  static checkFavoriteRestaurant(restaurant, isFavorite) {
+  static updateFavoriteRestaurant(restaurant, isFavorite) {
     fetch(
       `${DBHelper.DATABASE_URL}/restaurants/${
         restaurant.id
@@ -172,6 +170,7 @@ class DBHelper {
       }
     });
   }
+
   /**
    * Fetch a restaurant review by id
    */
@@ -192,6 +191,7 @@ class DBHelper {
         });
       });
   }
+
   /**
    * Fetch restaurants by a cuisine type with proper error handling.
    */

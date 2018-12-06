@@ -75,6 +75,13 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   const name = document.getElementById('restaurant-name');
   name.innerHTML = restaurant.name;
 
+  const favRestaurant = document.getElementById('favRestaurant');
+  chkBox = restaurant.is_favorite;
+  favRestaurant.addEventListener('change', event => {
+    DBHelper.updateFavoriteRestaurant(restaurant, event.target.checked);
+  });
+  favRestaurant.checked = JSON.parse(restaurant.is_favorite);
+
   const address = document.getElementById('restaurant-address');
   address.innerHTML = restaurant.address;
 
