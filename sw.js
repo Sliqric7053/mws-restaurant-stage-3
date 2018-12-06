@@ -1,5 +1,5 @@
-importScripts('./js/idb.js');
-importScripts('./js/dbhelper.js');
+self.importScripts('js/idb.js');
+self.importScripts('js/dbhelper.js');
 
 let staticCacheName = 'restaurant-info-v2';
 let urlsToCache = [
