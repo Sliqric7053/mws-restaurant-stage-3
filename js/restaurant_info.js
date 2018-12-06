@@ -28,10 +28,6 @@ initMap = () => {
           mapboxToken:
             'pk.eyJ1IjoicmljaGFyZHNpdCIsImEiOiJjams2cTdieDAxYnJ6M2txZ2U3MmMxMzkyIn0.pFf2q0Hk62I1cszCfoGiLA',
           maxZoom: 18,
-          // attribution:
-          //   'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-          //   '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-          //   'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
           id: 'mapbox.streets'
         }
       ).addTo(newMap);
@@ -76,7 +72,6 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   name.innerHTML = restaurant.name;
 
   const favRestaurant = document.getElementById('favRestaurant');
-  chkBox = restaurant.is_favorite;
   favRestaurant.addEventListener('change', event => {
     DBHelper.updateFavoriteRestaurant(restaurant, event.target.checked);
   });
@@ -131,13 +126,14 @@ reviewsForm.addEventListener('submit', function(event) {
   event.preventDefault();
   let review = { restaurant_id: self.restaurant.id };
   const formdata = new FormData(reviewsForm);
+  // Returns an array of key, value pairs for every entry in the Form
   for (let [key, value] of formdata.entries()) {
     review[key] = value;
   }
   DBHelper.reviewsSubmission(review);
   const ul = document.getElementById('reviews-list');
   ul.appendChild(createReviewHTML(review));
-  reviewsForm.reset();
+  reviewsForm.reset(); // clear the Form
 });
 
 

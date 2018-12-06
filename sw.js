@@ -6,37 +6,37 @@ let urlsToCache = [
   './',
   './index.html',
   './restaurant.html',
-  './js/dbhelper.js',
+  './css/styles.css',
   './js/main.js',
-  './js/idb.js',
-  './js/restaurant_info.js',
-  './manifest.json',
-  './sw.js',
-  './img/',
   './favicon.ico',
-  './css/styles.css'
+  './js/dbhelper.js',
+  './js/restaurant_info.js',
+  './js/idb.js',
+  './manifest.json',
+  './img/',
+  './sw.js'
 ];
 
 self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(staticCacheName).then(function(cache) {
-      console.log('Opened cache');
+      console.log('Cache opened');
       return cache.addAll(urlsToCache);
     })
   );
 });
 
-//Delete old cache
+//Delete stale cache
 self.addEventListener('activate', function(event) {
   event.waitUntil(
     caches.keys().then(function(cacheNames) {
       return Promise.all(
-        cacheNames.map(function(thisCachName) {
+        cacheNames.map(function(thisCacheName) {
           //If this was a previous cache
-          if (thisCachName !== staticCacheName) {
+          if (thisCacheName !== staticCacheName) {
             //Delete the cached file
-            console.log('Deleting old cached files');
-            return caches.delete(thisCachName);
+            console.log('Deleting stale cached files');
+            return caches.delete(thisCacheName);
           }
         })
       );
@@ -44,6 +44,7 @@ self.addEventListener('activate', function(event) {
   );
 });
 
+// Update cache
 self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(event.request, { ignoreSearch: true }).then(response => {
@@ -63,6 +64,7 @@ self.addEventListener('fetch', event => {
   );
 });
 
+// Immediately update cache
 self.addEventListener('message', function(event) {
   if (event.data.action === 'skipWaiting') {
     self.skipWaiting();
@@ -93,11 +95,11 @@ self.addEventListener('sync', function(event) {
                 DBHelper.deleteReviewsOffline();
               })
               .catch(error =>
-                console.log('Review not synced to database', error)
+                console.log('Review not synced to db: ', error)
               );
           }
         })
-        .catch(error => console.log('Unable to fetch reviews', error))
+        .catch(error => console.log('Unable to fetch reviews: ', error))
     );
   }
 });
