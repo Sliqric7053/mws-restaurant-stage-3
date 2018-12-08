@@ -71,11 +71,22 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   const name = document.getElementById('restaurant-name');
   name.innerHTML = restaurant.name;
 
-  const favRestaurant = document.getElementById('favRestaurant');
-  favRestaurant.addEventListener('change', event => {
-    DBHelper.updateFavoriteRestaurant(restaurant, event.target.checked);
+  const heart = document.querySelector('.heart');
+  heart.addEventListener('click', () => {
+
+    if (heart.classList.value == 'heart is-active') {
+      DBHelper.updateFavoriteRestaurant(restaurant, false);
+      heart.classList.remove('is-active', );
+    } else if (heart.classList.value == 'heart') {
+      DBHelper.updateFavoriteRestaurant(restaurant, true);
+      heart.classList.add('is-active');
+    }
   });
-  favRestaurant.checked = JSON.parse(restaurant.is_favorite);
+
+  if (JSON.parse(restaurant.is_favorite)) {
+      heart.classList.add('heart', 'is-active');
+    }
+
 
   const address = document.getElementById('restaurant-address');
   address.innerHTML = restaurant.address;
@@ -83,7 +94,7 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   const image = document.getElementById('restaurant-img');
   image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
-  image.alt = `Picture of ${restaurant.name} restaurant`;
+  image.alt = `${restaurant.name} Restaurant`;
 
   const cuisine = document.getElementById('restaurant-cuisine');
   cuisine.innerHTML = restaurant.cuisine_type;
@@ -142,7 +153,7 @@ reviewsForm.addEventListener('submit', function(event) {
  */
 fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   const container = document.getElementById('reviews-container');
-  const title = document.createElement('h2');
+  const title = document.createElement('h3');
   title.innerHTML = 'Reviews';
   container.appendChild(title);
 
