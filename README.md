@@ -1,4 +1,50 @@
-View the thing: https://sliqric7053.github.io/mws-restaurant-stage-3/
+## Getting Started
+
+### Development local API Server
+_Location of server = /server_
+Server depends on [node.js LTS Version: v6.11.2 ](https://nodejs.org/en/download/), [npm](https://www.npmjs.com/get-npm), and [sails.js](http://sailsjs.com/)
+Please make sure you have these installed before proceeding forward.
+
+Great, you are ready to proceed forward; awesome!
+
+Let's start with running commands in your terminal, known as command line interface (CLI)
+
+###### Install project dependancies
+```Install project dependancies
+# npm i
+```
+###### Install Sails.js globally
+```Install sails global
+# npm i sails -g
+```
+###### Start the server
+```Start server
+# node server
+```
+### You should now have access to your API server environment
+debug: Environment : development
+debug: Port        : 1337
+
+### To Run The App
+```
+```
+#### For Python2:
+
+
+At the root folder, use python -m SimpleHTTPServer 8080 at the command line.
+Then type localhost:8080 into your browser
+
+#### For Python3:
+At the root folder, use python3 -m http.server 8080 at the command line.
+Then type localhost:8080 into your browser
+
+Open a separate command line and type 'node server' to luanch sails as stated earlier.
+```
+=======================================================================================
+=======================================================================================
+======================== SPECIFICATIONS ===============================================
+=======================================================================================
+=======================================================================================
 
 ### Restaurant Reviews: Stage 3
 
