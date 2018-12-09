@@ -1,7 +1,7 @@
 self.importScripts('./js/idb.js');
 self.importScripts('./js/dbhelper.js');
 
-let staticCacheName = 'restaurant-info-v3';
+let staticCacheName = 'restaurant-info-v4';
 let urlsToCache = [
   './',
   './index.html',
@@ -25,7 +25,6 @@ let urlsToCache = [
   "./img/9.jpg",
   "./img/10.jpg",
   './sw.js',
-  './data/restaurants.json',
   'https://unpkg.com/leaflet@1.3.1/dist/leaflet.css',
 	'https://unpkg.com/leaflet@1.3.1/dist/leaflet.js'
 ];

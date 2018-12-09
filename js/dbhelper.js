@@ -29,17 +29,7 @@ class DBHelper {
    * Database URL.
    */
   static get DATABASE_URL() {
-    try {
-      const sailServer = 'http://localhost:1337';
-      return sailServer;
-    }
-    catch (e) {
-      console.log('get DATABASE_URL error: ', e);
-    }
-    finally {
-      const localServer = 'file:/data/restaurants.json';
-      return localServer;
-    }
+    return 'http://localhost:1337';
   }
 
   /**
