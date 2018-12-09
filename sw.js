@@ -25,7 +25,9 @@ let urlsToCache = [
   "./img/9.jpg",
   "./img/10.jpg",
   './sw.js',
-  "https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"
+  './data/restaurants.json',
+  'https://unpkg.com/leaflet@1.3.1/dist/leaflet.css',
+	'https://unpkg.com/leaflet@1.3.1/dist/leaflet.js'
 ];
 
 self.addEventListener('install', function(event) {
