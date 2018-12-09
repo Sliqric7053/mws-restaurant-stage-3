@@ -89,7 +89,7 @@ nav {
   text-align: center;
 }
 nav h1 {
-  margin: auto;
+  margin-bottom: -20px;
 }
 nav h1 a {
   color: #fff;
@@ -150,10 +150,12 @@ nav h1 a {
   .heart {
     margin: 10px 0 0 !important;
   }
+  nav h1 a {
+    letter-spacing: 2px;
+  }
   .filter-options {
     display: grid;
     grid-template-columns: 0fr;
-
   }
 }
 
@@ -401,7 +403,7 @@ display: none;
   cursor: pointer;
   transition: background-position 1s steps(28);
   transition-duration: 0s;
-  margin: 60px 0 0;
+  margin: 30px 0 0;
 }
 
 .is-active {
