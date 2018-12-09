@@ -176,7 +176,7 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
 createReviewHTML = review => {
   const li = document.createElement('li');
   const name = document.createElement('p');
-  name.innerHTML = review.name;
+  name.innerHTML = `<b>${review.name}</b>`;
   li.appendChild(name);
 
   let date = document.createElement('p');
@@ -215,67 +215,4 @@ getParameterByName = (name, url) => {
   if (!results) return null;
   if (!results[2]) return '';
   return decodeURIComponent(results[2].replace(/\+/g, ' '));
-};
-
-const navRadioGroup = (evt) => {
-  // console.log('key', evt.key, 'code', evt.code, 'which', evt.which);
-  // console.log(evt);
-
-  const star1 = document.getElementById('star1');
-  const star2 = document.getElementById('star2');
-  const star3 = document.getElementById('star3');
-  const star4 = document.getElementById('star4');
-  const star5 = document.getElementById('star5');
-
-  if (['ArrowRight', 'ArrowLeft', 'ArrowDown', 'ArrowUp'].includes(evt.key)) {
-    evt.preventDefault();
-    // console.log('attempting return');
-    if (evt.key === 'ArrowRight' || evt.key === 'ArrowDown') {
-      switch(evt.target.id) {
-        case 'star1':
-          star2.focus();
-          star2.checked = true;
-          break;
-        case 'star2':
-          star3.focus();
-          star3.checked = true;
-          break;
-        case 'star3':
-          star4.focus();
-          star4.checked = true;
-          break;
-        case 'star4':
-          star5.focus();
-          star5.checked = true;
-          break;
-        case 'star5':
-          star1.focus();
-          star1.checked = true;
-          break;
-      }
-    } else if (evt.key === 'ArrowLeft' || evt.key === 'ArrowUp') {
-      switch(evt.target.id) {
-        case 'star1':
-          star5.focus();
-          star5.checked = true;
-          break;
-        case 'star2':
-          star1.focus();
-          star1.checked = true;
-          break;
-        case 'star3':
-          star2.focus();
-          star2.checked = true;
-          break;
-        case 'star4':
-          star3.focus();
-          star3.checked = true;
-          break;
-        case 'star5':
-          star4.focus();
-          star4.checked = true;
-          break;
-      }
-    }
-  }
 };

@@ -37,39 +37,6 @@
       <table id="restaurant-hours"></table>
     </section>
     <section id="reviews-container">
-      <!-- <form id="reviewForm">
-        <p>
-          <label for="name">Name:</label>
-          <input type="text"
-                 id="name" name="name"
-                 placeholder="Enter Your Name"
-                 required/>
-        </p>
-        <p>&nbsp;</p>
-        <p>
-          <label id ="optionRating"
-                 for="rating">Rating</label>
-          <select class = "optionRating"
-                  name="rating">
-            <option value="1" selected>Not good!</option>
-            <option value="2">Tasted better!</option>
-            <option value="3">Ok-ish!</option>
-            <option value="4">I like it!</option>
-            <option value="5">Looove it!</option>
-          </select>
-        </p>
-        <p>
-          <textarea rows="4"
-                    name="comments"
-                    placeholder="Type your review here"
-                    required></textarea>
-        </p>
-        <p>
-          <input id="submitButton"
-                 type="submit"
-                 value="Submit Review">
-        </p>
-      </form> -->
       <h4>Add a review</h4>
       <form id="reviewForm">
           <div class="fieldset">
@@ -78,7 +45,7 @@
           </div>
           <div class="fieldset">
             <label for="rating" id="optionRating">Rating</label>
-            <div class="rate" name="rating">
+            <div class="rating" name="rating">
               <input type="radio" id="star5" name="rating" value="5" onkeydown="navRadioGroup(event)">
               <label for="star5" title="5 stars">5 stars</label>
 
@@ -91,8 +58,8 @@
               <input type="radio" id="star2" name="rating" value="2" onkeydown="navRadioGroup(event)">
               <label for="star2" title="2 stars">2 stars</label>
 
-              <!-- <input type="radio" id="star1" name="rating" value="1" onkeydown="navRadioGroup(event)"> -->
-              <input type="radio" id="star1" name="https://codepen.io/pen/rate" value="1" onkeydown="navRadioGroup(event)">
+              <input type="radio" id="star1" name="rating" value="1" onkeydown="navRadioGroup(event)">
+              <!-- <input type="radio" id="star1" name="https://codepen.io/pen/rate" value="1" onkeydown="navRadioGroup(event)"> -->
               <label for="star1" title="1 star">1 star</label>
             </div>
           </div>
@@ -102,7 +69,7 @@
             <textarea name="comments" id="comments" cols="20" rows="5" required=""></textarea>
           </div>
           <div class="fieldset right">
-            <button id="submitButton">Submit Review</button>
+            <button id="submitButton">Submit</button>
           </div>
         </form>
       <ul id="reviews-list">
