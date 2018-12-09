@@ -71,6 +71,7 @@ section {
 #maincontent {
   background-color: #f3f3f3;
   min-height: 100%;
+  min-width: fit-content;
 }
 #footer {
   background-color: #444;
