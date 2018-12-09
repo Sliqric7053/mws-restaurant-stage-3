@@ -1,7 +1,7 @@
 /**
  * Create Indexed database
  */
-let dbPromise = idb.open('restaurantDB', 1, function(upgradeDb) {
+let dbPromise = idb.open('restaurantDB', 2, function(upgradeDb) {
   if (!upgradeDb.objectStoreNames.contains('restaurants')) {
     upgradeDb.createObjectStore('restaurants', {
       keyPath: 'id'

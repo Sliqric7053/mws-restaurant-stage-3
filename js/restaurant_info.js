@@ -137,6 +137,7 @@ reviewsForm.addEventListener('submit', function(event) {
   event.preventDefault();
   let review = { restaurant_id: self.restaurant.id };
   const formdata = new FormData(reviewsForm);
+  formdata.append('createdAt', new Date().toLocaleDateString())
   // Returns an array of key, value pairs for every entry in the Form
   for (let [key, value] of formdata.entries()) {
     review[key] = value;
@@ -179,8 +180,10 @@ createReviewHTML = review => {
   name.innerHTML = `<b>${review.name}</b>`;
   li.appendChild(name);
 
+  let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
   let date = document.createElement('p');
-  date.innerHTML = new Date(review.createdAt).toDateString();
+
+  date.innerHTML = new Date(review.createdAt).toLocaleDateString("en-US", options);
   li.appendChild(date);
 
   const rating = document.createElement('p');
