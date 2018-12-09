@@ -1,17 +1,18 @@
 self.importScripts('./js/idb.js');
 self.importScripts('./js/dbhelper.js');
 
-let staticCacheName = 'restaurant-info-v2';
+let staticCacheName = 'restaurant-info-v3';
 let urlsToCache = [
   './',
   './index.html',
   './restaurant.html',
   './css/styles.css',
-  './js/main.js',
   './favicon.ico',
   './js/dbhelper.js',
-  './js/restaurant_info.js',
   './js/idb.js',
+  './js/main.js',
+  './js/offline_persitence.js',
+  './js/restaurant_info.js',
   './manifest.json',
   "./img/1.jpg",
   "./img/2.jpg",
@@ -23,7 +24,8 @@ let urlsToCache = [
   "./img/8.jpg",
   "./img/9.jpg",
   "./img/10.jpg",
-  './sw.js'
+  './sw.js',
+  "https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"
 ];
 
 self.addEventListener('install', function(event) {
