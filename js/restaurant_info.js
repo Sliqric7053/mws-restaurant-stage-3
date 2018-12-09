@@ -180,7 +180,7 @@ createReviewHTML = review => {
   li.appendChild(name);
 
   let date = document.createElement('p');
-  date.innerHTML = new Date().getDate() + '/' + new Date().getMonth() + '/' + new Date().getFullYear();
+  date.innerHTML = new Date(review.createdAt).toDateString();
   li.appendChild(date);
 
   const rating = document.createElement('p');

@@ -42,6 +42,7 @@
           <div class="fieldset">
             <label for="name">Name</label>
             <input name="name" id="name" required="">
+            <input name="createdAt" id="createdAt" style="display: none">
           </div>
           <div class="fieldset">
             <label for="rating" id="optionRating">Rating</label>
@@ -59,11 +60,9 @@
               <label for="star2" title="2 stars">2 stars</label>
 
               <input type="radio" id="star1" name="rating" value="1" onkeydown="navRadioGroup(event)">
-              <!-- <input type="radio" id="star1" name="https://codepen.io/pen/rate" value="1" onkeydown="navRadioGroup(event)"> -->
               <label for="star1" title="1 star">1 star</label>
             </div>
           </div>
-
           <div class="fieldset">
             <label for="comments">Comments</label>
             <textarea name="comments" id="comments" cols="20" rows="5" required=""></textarea>
