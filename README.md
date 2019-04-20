@@ -24,6 +24,7 @@ debug: Port        : 1337
 
 ### To Run The App
 ```
+https://sliqric7053.github.io/mws-restaurant-stage-3
 ```
 #### For Python2:
 
